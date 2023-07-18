@@ -1,6 +1,7 @@
 # Project specific
 drafts/
 storage/
+migrations
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
