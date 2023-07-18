@@ -6,18 +6,18 @@ from minecraft.actions.index import get_context_index
     
 
 def index(request):
-    template = loader.get_template("server_manager/index.html")
+    template = loader.get_template("minecraft/index.html")
     context = get_context_index()
     return HttpResponse(template.render(context, request))
 
 
 def server_list(request):
-    template = loader.get_template("server_manager/server_list.html")
+    template = loader.get_template("minecraft/server_list.html")
     context = get_context_index()
     return HttpResponse(template.render(context, request))
 
 
 def server(request):
-    template = loader.get_template("server_manager/server.html")
+    template = loader.get_template("minecraft/server.html")
     context = get_context_index()
     return HttpResponse(template.render(context, request))
