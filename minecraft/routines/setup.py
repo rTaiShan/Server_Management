@@ -36,8 +36,9 @@ def get_paper_mc(version=None, build=None):
 def download_file(path, url, name):
     if not os.path.exists(path):
         os.makedirs(path)
-    urllib.request.urlretrieve(url, os.path.join(path, name))
-
+    download_path = os.path.join(path, name)
+    urllib.request.urlretrieve(url, download_path)
+    return download_path
 
 def get_vanilla_mc_versions():
     with urllib.request.urlopen("https://launchermeta.mojang.com/mc/game/version_manifest.json") as url:
