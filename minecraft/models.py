@@ -16,7 +16,14 @@ class MinecraftJar(models.Model):
     build = models.CharField(max_length=16)
     path = models.CharField(max_length=128)
 
+class ServerPreferences(models.Model):
+    name = models.CharField(max_length=64)
+    description = models.CharField(max_length=256)
+
 class MinecraftServer(models.Model):
     owner = models.ForeignKey(ServerOwner, on_delete=models.CASCADE)
     jar = models.ForeignKey(MinecraftJar, on_delete=models.CASCADE)
+    preferences = models.ForeignKey(ServerPreferences, on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
+    running = models.BooleanField()
+
