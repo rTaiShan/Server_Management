@@ -1,5 +1,5 @@
 """
-URL configuration for mc_server_manager project.
+URL configuration for server_manager project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path('manager/', include("manager.urls"), name='manager'),
+    path('minecraft/', include("minecraft.urls"), name='mc_manager'),
 ]

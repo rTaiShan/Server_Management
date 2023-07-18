@@ -1,3 +1,3 @@
-# MC Server Manager
+# Server Manager
 
-Use django to manage minecraft servers
+Use django to manage game servers (Minecraft, Stardew Valley, Terraria etc)
