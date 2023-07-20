@@ -1,5 +1,4 @@
 import os
-import subprocess
 import urllib
 import json
 
@@ -61,4 +60,3 @@ def get_vanilla_mc(version=None):
     with urllib.request.urlopen(json_url) as versionUrl:
         dataUrl = json.loads(versionUrl.read().decode())
     return dataUrl["downloads"]["server"]["url"]
-
