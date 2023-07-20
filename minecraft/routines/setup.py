@@ -1,4 +1,5 @@
 import os
+import subprocess
 import urllib
 import json
 
@@ -40,6 +41,7 @@ def download_file(path, url, name):
     urllib.request.urlretrieve(url, download_path)
     return download_path
 
+
 def get_vanilla_mc_versions():
     with urllib.request.urlopen("https://launchermeta.mojang.com/mc/game/version_manifest.json") as url:
         data = json.loads(url.read().decode())
@@ -59,3 +61,4 @@ def get_vanilla_mc(version=None):
     with urllib.request.urlopen(json_url) as versionUrl:
         dataUrl = json.loads(versionUrl.read().decode())
     return dataUrl["downloads"]["server"]["url"]
+
