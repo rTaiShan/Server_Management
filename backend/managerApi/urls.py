@@ -1,5 +1,5 @@
 """
-URL configuration for server_manager project.
+URL configuration for managerApi project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,11 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path 
 
 urlpatterns = [
-    path('', include('manager_site.urls')),
-    # path('/', include('manager_site.urls')),
-    path('admin/', admin.site.urls, name='admin'),
-    path('minecraft/', include("minecraft.urls"), name='mc_manager'),
+    path('admin/', admin.site.urls),
+    path('api/minecraft/', include('mcManager.urls'))
 ]

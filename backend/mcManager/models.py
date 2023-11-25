@@ -8,6 +8,9 @@ class ServerOwner(models.Model):
     username = models.CharField(max_length=32)
     name = models.CharField(max_length=128)
 
+    def __str__(self):
+        return f"{self.username} | {self.name}"
+    
 class MinecraftJar(models.Model):
     name = models.CharField(max_length=32)
     type = models.CharField(max_length=32)
@@ -15,6 +18,9 @@ class MinecraftJar(models.Model):
     source = models.CharField(max_length=128)
     build = models.CharField(max_length=16)
     path = models.CharField(max_length=128)
+
+    def __str__(self):
+        return f"{self.name} | {self.type} - {self.source} | {self.version} {self.build}"
 
 class ServerPreferences(models.Model):
     name = models.CharField(max_length=64)
@@ -27,3 +33,5 @@ class MinecraftServer(models.Model):
     name = models.CharField(max_length=64)
     running = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.name} | {self.owner.name}"

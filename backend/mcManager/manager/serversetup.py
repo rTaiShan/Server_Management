@@ -2,19 +2,16 @@ import os
 import urllib
 import json
 
-
 def get_paper_mc_versions():
     with urllib.request.urlopen('https://papermc.io/api/v2/projects/paper/') as baseurl:
         basedata = json.loads(baseurl.read().decode())
     return basedata.get('versions')
-
 
 def get_paper_mc_builds(version):
     pmc_url = f'https://papermc.io/api/v2/projects/paper/versions/{version}'
     with urllib.request.urlopen(pmc_url) as baseurl:
         basedata = json.loads(baseurl.read().decode())
         return basedata["builds"]
-
 
 def get_paper_mc(version=None, build=None):
     if version is None:
@@ -32,7 +29,6 @@ def get_paper_mc(version=None, build=None):
         final = f"{pmc_url}/downloads/{name}"
     return final
 
-
 def download_file(path, url, name):
     if not os.path.exists(path):
         os.makedirs(path)
@@ -40,12 +36,10 @@ def download_file(path, url, name):
     urllib.request.urlretrieve(url, download_path)
     return download_path
 
-
 def get_vanilla_mc_versions():
     with urllib.request.urlopen("https://launchermeta.mojang.com/mc/game/version_manifest.json") as url:
         data = json.loads(url.read().decode())
     return data['versions']
-
 
 def get_vanilla_mc(version=None):
     mc_versions = get_vanilla_mc_versions()
