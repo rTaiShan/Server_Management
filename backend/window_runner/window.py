@@ -14,14 +14,16 @@ class Window:
     def _read_buffer(self):
         return self.pane.cmd('capture-pane', '-p')
 
-    def read_stdout(self, from_start=False):
+    def read_stdout(self, read_from=None):
+        if read_from is None:
+            read_from = self.stdout_head
         stdout = self._read_buffer().stdout
-        result = stdout if from_start else stdout[self.stdout_head:]
         self.stdout_head = len(stdout)
-        return result
-
-    def read_stderr(self, from_start=False):
+        return stdout[self.stdout_head:]
+    
+    def read_stderr(self, read_from=None):
+        if read_from is None:
+            read_from = self.stderr_head
         stderr = self._read_buffer().stderr
-        result = stderr if from_start else stderr[self.stderr_head:]
         self.stderr_head = len(stderr)
-        return result
+        return stderr[self.stderr_head:]
